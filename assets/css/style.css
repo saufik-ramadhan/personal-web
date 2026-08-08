@@ -358,7 +358,9 @@ dl, dd { margin: 0; }
 }
 .deflist__row { display: grid; gap: 1px 14px; padding: 5px 0; border-bottom: 1px dotted var(--line); }
 .deflist__row:last-child { border-bottom: 0; }
-@media (min-width: 560px) { .deflist__row { grid-template-columns: 118px minmax(0, 1fr); align-items: baseline; } }
+/* Same left column as the entry/row lists, so the labels line up with the
+   period column of the sections below. */
+@media (min-width: 560px) { .deflist__row { grid-template-columns: var(--col-w) minmax(0, 1fr); align-items: baseline; } }
 
 /* ── Entries (education / experience / electronics) ──────────── */
 .entries { display: grid; }

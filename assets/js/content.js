@@ -130,23 +130,39 @@ const CONTENT = {
     skills: [
       {
         label: { en: 'Languages', id: 'Bahasa Pemrograman', ko: '언어', ja: '言語', zh: '编程语言' },
-        items: ['JavaScript', 'TypeScript', 'HTML', 'CSS', 'SQL'],
+        items: ['JavaScript', 'TypeScript', 'PHP', 'Java', 'Python', 'C', 'C++', 'SQL', 'HTML', 'CSS'],
       },
       {
         label: { en: 'Frameworks', id: 'Framework', ko: '프레임워크', ja: 'フレームワーク', zh: '框架' },
-        items: ['React', 'Next.js', 'React Native', 'Node.js', 'Redux'],
+        items: ['React', 'Next.js', 'React Native', 'Angular', 'Node.js', 'Redux'],
       },
       {
         label: { en: 'UI & styling', id: 'UI & Styling', ko: 'UI·스타일링', ja: 'UI・スタイリング', zh: 'UI 与样式' },
         items: ['Tailwind', 'SASS', 'Styled-Components', 'CSS-in-JS'],
       },
       {
-        label: { en: 'Tooling', id: 'Perkakas', ko: '툴', ja: 'ツール', zh: '工具' },
-        items: ['Git', 'Docker', 'Agile / Scrum'],
-      },
-      {
         label: { en: 'Testing', id: 'Pengujian', ko: '테스트', ja: 'テスト', zh: '测试' },
         items: ['Jest', 'React Testing Library'],
+      },
+      {
+        label: { en: 'Tooling & platforms', id: 'Perkakas & Platform', ko: '툴·플랫폼', ja: 'ツール・基盤', zh: '工具与平台' },
+        items: ['Git', 'Docker', 'Linux', 'Agile / Scrum'],
+      },
+      {
+        label: { en: 'CAD & PCB', id: 'CAD & PCB', ko: 'CAD·PCB', ja: 'CAD・PCB', zh: 'CAD 与 PCB' },
+        items: ['FreeCAD', 'KiCad', 'Altium Designer'],
+      },
+      {
+        label: { en: 'Industrial & control', id: 'Industri & Kendali', ko: '산업 제어', ja: '産業制御', zh: '工业控制' },
+        items: ['Wonderware HMI', 'SCADA', 'RS-232', 'RS-485'],
+      },
+      {
+        label: { en: 'Networking', id: 'Jaringan', ko: '네트워크', ja: 'ネットワーク', zh: '网络' },
+        items: ['Cisco', 'Network management'],
+      },
+      {
+        label: { en: 'Numerical computing', id: 'Komputasi Numerik', ko: '수치 해석', ja: '数値計算', zh: '数值计算' },
+        items: ['MATLAB', 'GNU Octave'],
       },
     ],
   },
