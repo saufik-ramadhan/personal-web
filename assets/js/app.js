@@ -205,6 +205,14 @@
     C.education.forEach(function (item) {
       var li = entry(item.period, t(item.degree), t(item.school));
       if (item.detail) li.main.appendChild(el('p', 'entry__detail', t(item.detail)));
+
+      if (item.thesis) {
+        var line = el('p', 'meta-line');
+        line.appendChild(el('span', 'label', t(UI.thesis)));
+        line.appendChild(el('cite', 'entry__thesis', t(item.thesis)));
+        li.main.appendChild(line);
+      }
+
       list.appendChild(li);
     });
   }

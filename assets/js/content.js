@@ -35,6 +35,7 @@ const UI = {
   stack:     { en: 'Tech stack', id: 'Teknologi', ko: '기술 스택', ja: '技術スタック', zh: '技术栈' },
   tools:     { en: 'Tools', id: 'Perkakas', ko: '사용 툴', ja: 'ツール', zh: '工具' },
   projects:  { en: 'Key projects', id: 'Proyek utama', ko: '주요 프로젝트', ja: '主なプロジェクト', zh: '主要项目' },
+  thesis:    { en: 'Thesis', id: 'Tesis', ko: '학위논문', ja: '修士論文', zh: '学位论文' },
   issuedBy:  { en: 'Issued by', id: 'Diterbitkan oleh', ko: '발급 기관', ja: '発行機関', zh: '颁发机构' },
   credential:{ en: 'Credential ID', id: 'ID Kredensial', ko: '자격 번호', ja: '認定番号', zh: '证书编号' },
   viewMore:  { en: 'View project', id: 'Lihat proyek', ko: '프로젝트 보기', ja: 'プロジェクトを見る', zh: '查看项目' },
@@ -175,6 +176,9 @@ const CONTENT = {
         ja: '半導体デバイス、IC 設計手法、組込みシステムアーキテクチャ。',
         zh: '半导体器件、集成电路设计方法与嵌入式系统架构。',
       },
+      // Kept in the original language across all locales, as thesis titles
+      // are normally cited untranslated. Only the "Thesis" label switches.
+      thesis: 'Design of a Mesh Network Using the OLSRv2 Protocol on Resource-Constrained Devices',
     },
     {
       period: '2015 — 2019',

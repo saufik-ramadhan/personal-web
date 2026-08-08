@@ -376,6 +376,7 @@ dl, dd { margin: 0; }
 .entry__sub { font-size: 13px; color: var(--accent); }
 .entry__place { font-size: 12px; color: var(--faint); }
 .entry__detail { margin-top: 3px; font-size: 13px; line-height: 1.55; color: var(--fg-soft); }
+.entry__thesis { font-style: italic; color: var(--fg-soft); }
 
 .bullets { margin-top: 5px; }
 .bullets li { position: relative; padding-left: 13px; font-size: 13px; line-height: 1.55; color: var(--fg-soft); }
