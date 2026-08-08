@@ -242,20 +242,51 @@
     });
   }
 
+  /** Thumbnail strip that swaps the cover image in place. */
+  function thumbStrip(images, coverImg, title) {
+    var strip = el('div', 'piece__thumbs');
+
+    images.forEach(function (src, i) {
+      var btn = el('button', 'piece__thumb' + (i === 0 ? ' is-on' : ''));
+      btn.type = 'button';
+      btn.setAttribute('aria-label', title + ' — ' + (i + 1) + '/' + images.length);
+
+      var thumb = el('img');
+      thumb.src = src;
+      thumb.alt = '';
+      thumb.loading = 'lazy';
+      btn.appendChild(thumb);
+
+      btn.addEventListener('click', function () {
+        coverImg.src = src;
+        strip.querySelectorAll('.piece__thumb').forEach(function (b) { b.classList.remove('is-on'); });
+        btn.classList.add('is-on');
+      });
+
+      strip.appendChild(btn);
+    });
+
+    return strip;
+  }
+
   function renderDesign() {
     var list = document.getElementById('design-list');
     clear(list);
     C.design.forEach(function (item, i) {
       var article = el('article', 'piece reveal');
 
-      if (item.image) {
+      /* `images` (list) wins; `image` (single) still works. */
+      var images = (item.images && item.images.length) ? item.images : (item.image ? [item.image] : []);
+
+      if (images.length) {
         var cover = el('div', 'piece__cover');
         var img = el('img');
-        img.src = item.image;
+        img.src = images[0];
         img.alt = t(item.title);
         img.loading = 'lazy';
         cover.appendChild(img);
         article.appendChild(cover);
+        if (images.length > 1) article.appendChild(thumbStrip(images, img, t(item.title)));
       } else {
         article.appendChild(placeholderCover(i));
       }

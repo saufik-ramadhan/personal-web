@@ -341,23 +341,35 @@ const CONTENT = {
   ],
 
   /* ── 04 3D design portfolio ────────────────────────────────── */
-  // TODO: replace these three placeholders with your real 3D pieces.
-  // `image` is optional — leave it out and a generated cover is used instead.
+  // `images` is a list of paths — the first is the cover, the rest become
+  // thumbnails. `image` (single path) still works. Leave both empty and a
+  // generated cover is used instead.
   design: [
     {
-      year: '2025',
-      title: { en: 'Project title', id: 'Judul proyek', ko: '프로젝트 제목', ja: 'プロジェクト名', zh: '项目名称' },
-      desc: {
-        en: 'Short description of the piece — what it is, what it was for, and what was hard about it.',
-        id: 'Deskripsi singkat karya — apa itu, untuk apa, dan apa tantangannya.',
-        ko: '작업 간단 설명 — 무엇을, 왜 만들었고, 어떤 점이 어려웠는지.',
-        ja: '作品の簡単な説明 — 何を、何のために、どこが難しかったか。',
-        zh: '作品简介 —— 是什么、为何而做、难点在哪里。',
+      year: '2026',
+      title: {
+        en: 'VESA Bracket to 1/4" Thread Converter',
+        id: 'Konverter Braket VESA ke Ulir 1/4"',
+        ko: 'VESA 브래킷 → 1/4" 나사 변환 어댑터',
+        ja: 'VESAブラケット → 1/4"ネジ変換アダプター',
+        zh: 'VESA 支架转 1/4" 螺纹转换器',
       },
-      tools: ['Blender', 'Fusion 360'],
-      image: '',
-      link: '',
+      desc: {
+        en: 'An adapter that turns a spare monitor arm into a flexible rig for a camera, webcam, ring light or microphone. It converts a standard VESA hole pattern — 75×75 mm and 100×100 mm both fit — into a 1/4" tripod thread, with a recess on top that captures a 1/4" hex nut. Modelled to print flat on the bed with no supports.',
+        id: 'Adaptor yang mengubah lengan monitor menganggur menjadi rig fleksibel untuk kamera, webcam, ring light, atau mikrofon. Mengonversi pola lubang VESA standar — 75×75 mm maupun 100×100 mm — menjadi ulir tripod 1/4", dengan cekungan di bagian atas untuk menahan mur segi enam 1/4". Dimodelkan agar dapat dicetak rata di bed tanpa support.',
+        ko: '남는 모니터 암을 카메라, 웹캠, 링라이트, 마이크용 거치대로 바꿔 주는 어댑터입니다. 75×75 mm와 100×100 mm 모두 맞는 표준 VESA 홀 패턴을 1/4" 삼각대 나사로 변환하며, 상단 홈이 1/4" 육각 너트를 잡아 줍니다. 서포트 없이 베드에 평평하게 출력되도록 모델링했습니다.',
+        ja: '余っているモニターアームを、カメラ・ウェブカメラ・リングライト・マイク用のリグに変えるアダプターです。75×75 mm と 100×100 mm のどちらにも合う標準 VESA 穴を 1/4" の三脚ネジに変換し、上面のくぼみが 1/4" 六角ナットを保持します。サポートなしでベタ置き印刷できるようモデリングしています。',
+        zh: '一款把闲置显示器支架变成相机、网络摄像头、环形灯或麦克风支架的转接件。它将标准 VESA 孔位（75×75 mm 与 100×100 mm 均适配）转换为 1/4" 三脚架螺纹，顶部凹槽可卡住 1/4" 六角螺母。建模时即考虑平放打印，无需支撑。',
+      },
+      tools: ['FreeCAD', 'FDM printing'],
+      images: [
+        'assets/img/vesa-adapter/01.jpg',
+        'assets/img/vesa-adapter/02.jpg',
+        'assets/img/vesa-adapter/03.jpg',
+      ],
+      link: 'https://www.printables.com/model/1758140-vesa-bracket-to-14-thread-converter',
     },
+    // TODO: replace the two placeholders below with your other 3D pieces.
     {
       year: '2024',
       title: { en: 'Project title', id: 'Judul proyek', ko: '프로젝트 제목', ja: 'プロジェクト名', zh: '项目名称' },
@@ -368,8 +380,8 @@ const CONTENT = {
         ja: '作品の簡単な説明 — 何を、何のために、どこが難しかったか。',
         zh: '作品简介 —— 是什么、为何而做、难点在哪里。',
       },
-      tools: ['Blender', 'Substance Painter'],
-      image: '',
+      tools: ['FreeCAD'],
+      images: [],
       link: '',
     },
     {
@@ -382,8 +394,8 @@ const CONTENT = {
         ja: '作品の簡単な説明 — 何を、何のために、どこが難しかったか。',
         zh: '作品简介 —— 是什么、为何而做、难点在哪里。',
       },
-      tools: ['Fusion 360', 'KeyShot'],
-      image: '',
+      tools: ['FreeCAD'],
+      images: [],
       link: '',
     },
   ],

@@ -37,7 +37,8 @@ and translate it later. Entries marked `// TODO` in that file are placeholders:
 | About, Education, Experience | Real data from the CV |
 | Electronics — SGSCA | Real |
 | Awards — National Electromedical Weeks 2018 | Real |
-| **3D design** | **Placeholder — 3 slots to fill in** |
+| 3D design — VESA→1/4" converter | Real |
+| **3D design** | **Placeholder — 2 slots to fill in** |
 | **Certifications** | **Placeholder — 2 slots to fill in** |
 | **Languages** | Indonesian + English, **check the levels** |
 
@@ -46,13 +47,20 @@ Removing every item from `design`, `electronics`, `certifications`, `awards` or
 
 ### 3D portfolio images
 
-Drop images into `assets/img/` and point the `image` field at them:
+Drop images into `assets/img/` and list them in `images`. The first is the
+cover; any others become thumbnails that swap the cover when clicked:
 
 ```js
-{ year: '2025', title: {…}, image: 'assets/img/my-render.jpg', link: 'https://…' }
+{
+  year: '2026',
+  title: {…},
+  images: ['assets/img/thing/01.jpg', 'assets/img/thing/02.jpg'],
+  link: 'https://…',
+}
 ```
 
-Leave `image` empty and a generated wireframe cover is used instead.
+A single `image: '…'` still works. Leave both empty and a generated wireframe
+cover is used instead.
 
 ### Adding a language
 

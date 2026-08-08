@@ -391,6 +391,19 @@ dl, dd { margin: 0; }
 .piece__cover { aspect-ratio: 4 / 3; overflow: hidden; background: var(--bg-alt); border-bottom: 1px solid var(--line); }
 .piece__cover img, .piece__cover svg { width: 100%; height: 100%; object-fit: cover; display: block; }
 
+.piece__thumbs { display: flex; gap: 3px; padding: 5px 5px 0; }
+.piece__thumb {
+  width: 34px; height: 26px;
+  padding: 0;
+  border: 1px solid var(--line);
+  overflow: hidden;
+  opacity: 0.55;
+  transition: opacity 0.15s, border-color 0.15s;
+}
+.piece__thumb:hover { opacity: 0.85; }
+.piece__thumb.is-on { opacity: 1; border-color: var(--accent); }
+.piece__thumb img { width: 100%; height: 100%; object-fit: cover; }
+
 .piece__body { padding: 8px 10px 10px; display: flex; flex-direction: column; gap: 2px; flex: 1; }
 .piece__year { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; color: var(--faint); }
 .piece__title { font-size: 13.5px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.3; }
