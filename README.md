@@ -7,6 +7,10 @@ proficiency.
 Static HTML, CSS and vanilla JavaScript — no build step, no dependencies.
 Available in **English, Bahasa Indonesia, 한국어, 日本語 and 中文**.
 
+Dense academic/newspaper layout — narrow measure, tight leading, hairline rules.
+Light theme by default with a toggle in the header; both the theme and the
+language choice persist in `localStorage`.
+
 ## Run it locally
 
 Open `index.html` in a browser, or serve the folder:
@@ -59,6 +63,10 @@ across the file. Nothing else needs to change.
 
 Pushing to `main` publishes to GitHub Pages via
 [`.github/workflows/pages.yml`](.github/workflows/pages.yml).
+
+After changing `style.css` or either JS file, bump the `?v=` query strings on
+the three asset tags in `index.html` — that's what stops returning visitors
+from being served a stale cached copy.
 
 ## Layout
 

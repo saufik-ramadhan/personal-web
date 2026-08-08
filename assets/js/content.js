@@ -28,6 +28,9 @@ const UI = {
   ctaContact:{ en: 'Get in touch', id: 'Hubungi saya', ko: '연락하기', ja: 'お問い合わせ', zh: '联系我' },
   menu:      { en: 'Menu', id: 'Menu', ko: '메뉴', ja: 'メニュー', zh: '菜单' },
   language:  { en: 'Language', id: 'Bahasa', ko: '언어', ja: '言語', zh: '语言' },
+  toDark:    { en: 'Switch to dark theme', id: 'Beralih ke tema gelap', ko: '다크 테마로 전환', ja: 'ダークテーマに切り替え', zh: '切换到深色主题' },
+  toLight:   { en: 'Switch to light theme', id: 'Beralih ke tema terang', ko: '라이트 테마로 전환', ja: 'ライトテーマに切り替え', zh: '切换到浅色主题' },
+  level:     { en: 'Level', id: 'Tingkat', ko: '수준', ja: 'レベル', zh: '水平' },
 
   stack:     { en: 'Tech stack', id: 'Teknologi', ko: '기술 스택', ja: '技術スタック', zh: '技术栈' },
   tools:     { en: 'Tools', id: 'Perkakas', ko: '사용 툴', ja: 'ツール', zh: '工具' },

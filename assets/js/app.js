@@ -1,6 +1,6 @@
 /**
  * app.js — renders every section from content.js and handles language
- * switching, navigation state and scroll reveals. No build step, no deps.
+ * switching, theme, navigation state and scroll reveals. No build step, no deps.
  */
 (function () {
   'use strict';
@@ -10,7 +10,8 @@
   var SECTIONS = window.SITE.SECTIONS;
   var C = window.SITE.CONTENT;
 
-  var STORAGE_KEY = 'site-lang';
+  var LANG_KEY = 'site-lang';
+  var THEME_KEY = 'site-theme';
   var CODES = LANGS.map(function (l) { return l.code; });
   var lang = resolveInitialLang();
 
@@ -28,7 +29,7 @@
 
   function resolveInitialLang() {
     try {
-      var saved = localStorage.getItem(STORAGE_KEY);
+      var saved = localStorage.getItem(LANG_KEY);
       if (saved && CODES.indexOf(saved) !== -1) return saved;
     } catch (e) { /* private mode — fall through */ }
 
@@ -48,50 +49,45 @@
     return node;
   }
 
-  function tagList(items) {
-    var ul = el('ul', 'tags');
-    items.forEach(function (item) { ul.appendChild(el('li', 'tag', item)); });
+  function clear(node) { while (node.firstChild) node.removeChild(node.firstChild); }
+
+  /** Comma-separated inline list — denser than a row of pills. */
+  function inlineList(items) {
+    var ul = el('ul', 'inline-list');
+    items.forEach(function (item) { ul.appendChild(el('li', null, item)); });
     return ul;
   }
 
-  /** "Tech stack: React, Next.js…" style row with a small caps label. */
-  function metaRow(labelKey, items) {
-    var row = el('div', 'meta-row');
-    row.appendChild(el('span', 'label', t(UI[labelKey])));
-    row.appendChild(tagList(items));
-    return row;
+  /** "Tech stack  React, Next.js, …" on a single line. */
+  function metaLine(labelKey, items) {
+    var p = el('p', 'meta-line');
+    p.appendChild(el('span', 'label', t(UI[labelKey])));
+    p.appendChild(inlineList(items));
+    return p;
   }
 
-  function externalLink(href, label) {
-    var a = el('a', 'link-more');
+  function externalLink(href, label, className) {
+    var a = el('a', className || 'link-more', label);
     a.href = href;
     a.target = '_blank';
     a.rel = 'noopener noreferrer';
-    a.appendChild(el('span', null, label));
-    a.appendChild(el('span', null, '→'));
     return a;
   }
 
-  /** Deterministic placeholder cover so empty portfolio slots still look designed. */
+  /** Placeholder cover for empty portfolio slots. Uses theme tokens so it
+   *  follows the light/dark switch; opacity varies per tile for some rhythm. */
   function placeholderCover(index) {
-    var hue = 208 + index * 26;
     var wrap = el('div', 'piece__cover');
     wrap.innerHTML =
-      '<svg viewBox="0 0 400 300" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">' +
-        '<defs><linearGradient id="g' + index + '" x1="0" y1="0" x2="1" y2="1">' +
-          '<stop offset="0%" stop-color="hsl(' + hue + ' 34% 88%)"/>' +
-          '<stop offset="100%" stop-color="hsl(' + (hue + 32) + ' 26% 72%)"/>' +
-        '</linearGradient></defs>' +
-        '<rect width="400" height="300" fill="url(#g' + index + ')"/>' +
-        '<g fill="none" stroke="hsl(' + hue + ' 30% 42%)" stroke-opacity=".38" stroke-width="1">' +
+      '<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">' +
+        '<rect width="400" height="300" fill="var(--bg-alt)"/>' +
+        '<g fill="none" stroke="var(--accent)" stroke-opacity="' + (0.28 + (index % 3) * 0.1).toFixed(2) + '" stroke-width="1">' +
           '<path d="M200 78 L292 131 L292 213 L200 266 L108 213 L108 131 Z"/>' +
           '<path d="M200 78 L200 172 L292 131 M200 172 L108 131 M200 172 L200 266"/>' +
         '</g>' +
       '</svg>';
     return wrap;
   }
-
-  function clear(node) { while (node.firstChild) node.removeChild(node.firstChild); }
 
   /* ── Section renderers ─────────────────────────────────────── */
 
@@ -110,11 +106,9 @@
       node.textContent = t(C.meta[key]);
     });
 
-    ['hero-email', 'footer-email'].forEach(function (id) {
-      var a = document.getElementById(id);
-      a.href = 'mailto:' + C.meta.email;
-      a.textContent = C.meta.email;
-    });
+    var mail = document.getElementById('footer-email');
+    mail.href = 'mailto:' + C.meta.email;
+    mail.textContent = C.meta.email;
 
     document.getElementById('footer-year').textContent = '© ' + new Date().getFullYear();
 
@@ -122,15 +116,34 @@
     clear(links);
     (C.meta.links || []).forEach(function (item) {
       var li = el('li');
-      var a = el('a', null, item.label);
-      a.href = item.url;
-      a.target = '_blank';
-      a.rel = 'noopener noreferrer';
-      li.appendChild(a);
+      li.appendChild(externalLink(item.url, item.label, null));
       links.appendChild(li);
     });
-    var note = el('li', null, t(UI.builtWith));
-    links.appendChild(note);
+    links.appendChild(el('li', null, t(UI.builtWith)));
+  }
+
+  /** Contact block in the masthead: a compact label/value definition list. */
+  function renderMasthead() {
+    var dl = document.getElementById('masthead-meta');
+    clear(dl);
+
+    function row(label, valueNode) {
+      var dt = el('dt', 'label', label);
+      var dd = el('dd');
+      dd.appendChild(valueNode);
+      dl.appendChild(dt);
+      dl.appendChild(dd);
+    }
+
+    row(t(UI.basedIn), document.createTextNode(t(C.meta.location)));
+
+    var mail = el('a', null, C.meta.email);
+    mail.href = 'mailto:' + C.meta.email;
+    row(t(UI.email), mail);
+
+    (C.meta.links || []).forEach(function (item) {
+      row(item.label, externalLink(item.url, item.url.replace(/^https?:\/\//, ''), null));
+    });
   }
 
   function renderNav() {
@@ -139,25 +152,18 @@
       { list: document.getElementById('mobile-nav-list'), linkClass: 'mobile-menu__link', numbered: true },
     ].forEach(function (target) {
       clear(target.list);
-      NAV.forEach(function (key, i) {
+
+      NAV.concat(['contact']).forEach(function (key, i) {
         var li = el('li');
         var a = el('a', target.linkClass);
         a.href = '#' + key;
         if (target.numbered) {
-          a.appendChild(el('span', 'mobile-menu__num', '0' + (i + 1)));
+          a.appendChild(el('span', 'mobile-menu__num', key === 'contact' ? '—' : '0' + (i + 1)));
         }
         a.appendChild(el('span', null, t(SECTIONS[key])));
         li.appendChild(a);
         target.list.appendChild(li);
       });
-
-      var contact = el('li');
-      var ca = el('a', target.linkClass);
-      ca.href = '#contact';
-      if (target.numbered) ca.appendChild(el('span', 'mobile-menu__num', '—'));
-      ca.appendChild(el('span', null, t(SECTIONS.contact)));
-      contact.appendChild(ca);
-      target.list.appendChild(contact);
     });
   }
 
@@ -169,22 +175,36 @@
     var facts = document.getElementById('about-facts');
     clear(facts);
     C.about.skills.forEach(function (group) {
-      var li = el('li', 'fact reveal');
-      li.appendChild(el('span', 'label fact__label', t(group.label)));
-      li.appendChild(tagList(group.items));
-      facts.appendChild(li);
+      var row = el('div', 'deflist__row reveal');
+      row.appendChild(el('dt', 'label', t(group.label)));
+      var dd = el('dd');
+      dd.appendChild(inlineList(group.items));
+      row.appendChild(dd);
+      facts.appendChild(row);
     });
+  }
+
+  /** Shared shape for education / experience / electronics. */
+  function entry(period, title, sub, place) {
+    var li = el('li', 'entry reveal');
+    li.appendChild(el('p', 'entry__period', period));
+
+    var main = el('div', 'entry__main');
+    main.appendChild(el('h3', 'entry__title', title));
+    if (sub) main.appendChild(el('p', 'entry__sub', sub));
+    if (place) main.appendChild(el('p', 'entry__place', place));
+
+    li.appendChild(main);
+    li.main = main;
+    return li;
   }
 
   function renderEducation() {
     var list = document.getElementById('education-list');
     clear(list);
     C.education.forEach(function (item) {
-      var li = el('li', 'entry reveal');
-      li.appendChild(el('p', 'entry__period', item.period));
-      li.appendChild(el('h3', 'entry__title', t(item.degree)));
-      li.appendChild(el('p', 'entry__sub', t(item.school)));
-      if (item.detail) li.appendChild(el('p', 'entry__detail', t(item.detail)));
+      var li = entry(item.period, t(item.degree), t(item.school));
+      if (item.detail) li.main.appendChild(el('p', 'entry__detail', t(item.detail)));
       list.appendChild(li);
     });
   }
@@ -193,19 +213,31 @@
     var list = document.getElementById('experience-list');
     clear(list);
     C.experience.forEach(function (job) {
-      var li = el('li', 'entry reveal');
-      li.appendChild(el('p', 'entry__period', job.period));
-      li.appendChild(el('h3', 'entry__title', job.company));
-      li.appendChild(el('p', 'entry__sub', t(job.role)));
-      if (job.location) li.appendChild(el('p', 'entry__place', t(job.location)));
+      var li = entry(job.period, job.company, t(job.role), job.location ? t(job.location) : '');
 
       var bullets = el('ul', 'bullets');
       job.bullets.forEach(function (b) { bullets.appendChild(el('li', null, t(b))); });
-      li.appendChild(bullets);
+      li.main.appendChild(bullets);
 
-      if (job.projects && job.projects.length) li.appendChild(metaRow('projects', job.projects));
-      if (job.stack && job.stack.length) li.appendChild(metaRow('stack', job.stack));
+      if (job.projects && job.projects.length) li.main.appendChild(metaLine('projects', job.projects));
+      if (job.stack && job.stack.length) li.main.appendChild(metaLine('stack', job.stack));
 
+      list.appendChild(li);
+    });
+  }
+
+  function renderElectronics() {
+    var list = document.getElementById('electronics-list');
+    clear(list);
+    C.electronics.forEach(function (item) {
+      var li = entry(item.year, t(item.title));
+      li.main.appendChild(el('p', 'entry__detail', t(item.desc)));
+      if (item.stack && item.stack.length) li.main.appendChild(metaLine('stack', item.stack));
+      if (item.link) {
+        var p = el('p', 'meta-line');
+        p.appendChild(externalLink(item.link, t(UI.viewMore) + ' →'));
+        li.main.appendChild(p);
+      }
       list.appendChild(li);
     });
   }
@@ -234,25 +266,15 @@
       body.appendChild(el('p', 'piece__desc', t(item.desc)));
 
       var foot = el('div', 'piece__foot');
-      if (item.tools && item.tools.length) foot.appendChild(tagList(item.tools));
-      if (item.link) foot.appendChild(externalLink(item.link, t(UI.viewMore)));
+      if (item.tools && item.tools.length) foot.appendChild(metaLine('tools', item.tools));
+      if (item.link) {
+        var p = el('p', 'meta-line');
+        p.appendChild(externalLink(item.link, t(UI.viewMore) + ' →'));
+        foot.appendChild(p);
+      }
       body.appendChild(foot);
 
       article.appendChild(body);
-      list.appendChild(article);
-    });
-  }
-
-  function renderElectronics() {
-    var list = document.getElementById('electronics-list');
-    clear(list);
-    C.electronics.forEach(function (item) {
-      var article = el('article', 'card reveal');
-      article.appendChild(el('p', 'card__year', item.year));
-      article.appendChild(el('h3', 'card__title', t(item.title)));
-      article.appendChild(el('p', 'card__desc', t(item.desc)));
-      if (item.stack && item.stack.length) article.appendChild(metaRow('stack', item.stack));
-      if (item.link) article.appendChild(externalLink(item.link, t(UI.viewMore)));
       list.appendChild(article);
     });
   }
@@ -272,7 +294,7 @@
 
       if (cert.link) {
         var aside = el('div', 'row__aside');
-        aside.appendChild(externalLink(cert.link, t(UI.viewMore)));
+        aside.appendChild(externalLink(cert.link, t(UI.viewMore) + ' →'));
         li.appendChild(aside);
       }
       list.appendChild(li);
@@ -300,18 +322,13 @@
     var list = document.getElementById('languages-list');
     clear(list);
     C.languages.forEach(function (item) {
-      var li = el('li', 'lang-card reveal');
+      var li = el('li', 'lang-row reveal');
+      li.appendChild(el('span', 'lang-row__name', t(item.name)));
+      li.appendChild(el('span', 'lang-row__note', t(item.note)));
 
-      var top = el('div', 'lang-card__top');
-      top.appendChild(el('h3', 'lang-card__name', t(item.name)));
-      top.appendChild(el('span', 'row__year', item.level + '/5'));
-      li.appendChild(top);
-
-      li.appendChild(el('p', 'lang-card__note', t(item.note)));
-
-      var meter = el('div', 'meter');
+      var meter = el('span', 'meter');
       meter.setAttribute('role', 'img');
-      meter.setAttribute('aria-label', t(item.name) + ': ' + item.level + '/5');
+      meter.setAttribute('aria-label', t(UI.level) + ' ' + item.level + '/5');
       for (var i = 1; i <= 5; i++) {
         meter.appendChild(el('span', 'meter__seg' + (i <= item.level ? ' is-on' : '')));
       }
@@ -335,6 +352,7 @@
 
   function renderAll() {
     renderStaticText();
+    renderMasthead();
     renderNav();
     renderAbout();
     renderEducation();
@@ -347,6 +365,35 @@
     hideEmptySections();
     observeReveals();
     bindMobileNavClose();
+  }
+
+  /* ── Theme ─────────────────────────────────────────────────── */
+  /* Light is the default; the inline script in <head> has already applied
+     the stored choice, so this only keeps the button label in sync. */
+
+  function currentTheme() {
+    return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  }
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    document.documentElement.style.colorScheme = theme;
+    try { localStorage.setItem(THEME_KEY, theme); } catch (e) { /* ignore */ }
+    syncThemeButton();
+  }
+
+  function syncThemeButton() {
+    var btn = document.getElementById('theme-btn');
+    var dark = currentTheme() === 'dark';
+    btn.setAttribute('aria-pressed', String(dark));
+    btn.setAttribute('aria-label', t(dark ? UI.toLight : UI.toDark));
+    btn.title = btn.getAttribute('aria-label');
+  }
+
+  function bindTheme() {
+    document.getElementById('theme-btn').addEventListener('click', function () {
+      applyTheme(currentTheme() === 'dark' ? 'light' : 'dark');
+    });
   }
 
   /* ── Language switcher ─────────────────────────────────────── */
@@ -376,9 +423,10 @@
   function setLang(code) {
     if (CODES.indexOf(code) === -1 || code === lang) return;
     lang = code;
-    try { localStorage.setItem(STORAGE_KEY, code); } catch (e) { /* ignore */ }
+    try { localStorage.setItem(LANG_KEY, code); } catch (e) { /* ignore */ }
     renderAll();
     buildLangMenu();
+    syncThemeButton();
     updateActiveNav();
   }
 
@@ -393,9 +441,8 @@
 
   function bindLangSwitcher() {
     var wrap = document.getElementById('lang');
-    var btn = document.getElementById('lang-btn');
 
-    btn.addEventListener('click', function (e) {
+    document.getElementById('lang-btn').addEventListener('click', function (e) {
       e.stopPropagation();
       if (wrap.classList.contains('is-open')) closeLangMenu(); else openLangMenu();
     });
@@ -425,7 +472,7 @@
     document.body.classList.remove('is-locked');
     window.setTimeout(function () {
       if (!panel.classList.contains('is-open')) panel.hidden = true;
-    }, 260);
+    }, 200);
   }
 
   function bindMobileMenu() {
@@ -454,18 +501,18 @@
       return;
     }
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('is-visible');
-        io.unobserve(entry.target);
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('is-visible');
+        io.unobserve(e.target);
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    }, { rootMargin: '0px 0px -4% 0px', threshold: 0.05 });
 
     items.forEach(function (n) { io.observe(n); });
   }
 
   function updateActiveNav() {
-    var offset = 140;
+    var offset = 110;
     var current = NAV[0];
     NAV.concat(['contact']).forEach(function (id) {
       var section = document.getElementById(id);
@@ -478,12 +525,8 @@
 
   function onScroll() {
     var y = window.scrollY || document.documentElement.scrollTop;
-    document.getElementById('header').classList.toggle('is-stuck', y > 8);
-
     var max = document.documentElement.scrollHeight - window.innerHeight;
-    var pct = max > 0 ? Math.min(y / max, 1) * 100 : 0;
-    document.getElementById('progress').style.width = pct + '%';
-
+    document.getElementById('progress').style.width = (max > 0 ? Math.min(y / max, 1) * 100 : 0) + '%';
     updateActiveNav();
   }
 
@@ -501,6 +544,8 @@
   function init() {
     renderAll();
     buildLangMenu();
+    syncThemeButton();
+    bindTheme();
     bindLangSwitcher();
     bindMobileMenu();
     bindScroll();
