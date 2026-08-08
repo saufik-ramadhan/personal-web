@@ -37,8 +37,7 @@ and translate it later. Entries marked `// TODO` in that file are placeholders:
 | About, Education, Experience | Real data from the CV |
 | Electronics — SGSCA | Real |
 | Awards — National Electromedical Weeks 2018 | Real |
-| 3D design — VESA→1/4" converter | Real |
-| **3D design** | **Placeholder — 2 slots to fill in** |
+| 3D design — all three pieces | Real (from Printables) |
 | **Certifications** | **Placeholder — 2 slots to fill in** |
 | **Languages** | Indonesian + English, **check the levels** |
 
