@@ -363,7 +363,12 @@
     C.languages.forEach(function (item) {
       var li = el('li', 'lang-row reveal');
       li.appendChild(el('span', 'lang-row__name', t(item.name)));
-      li.appendChild(el('span', 'lang-row__note', t(item.note)));
+
+      var note = el('span', 'lang-row__note', t(item.note));
+      if (item.score) {
+        note.appendChild(el('span', 'lang-row__score', t(item.score)));
+      }
+      li.appendChild(note);
 
       var meter = el('span', 'meter');
       meter.setAttribute('role', 'img');

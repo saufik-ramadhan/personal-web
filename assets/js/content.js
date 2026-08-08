@@ -535,6 +535,15 @@ const CONTENT = {
         ja: 'ビジネスレベル',
         zh: '专业工作水平',
       },
+      // 890 is on the 990-point Listening & Reading scale (Speaking &
+      // Writing tops out at 400), so it's recorded as L&R.
+      score: {
+        en: 'TOEIC 890 (Listening & Reading), 2022',
+        id: 'TOEIC 890 (Listening & Reading), 2022',
+        ko: 'TOEIC 890 (듣기·읽기), 2022',
+        ja: 'TOEIC 890（リスニング・リーディング）、2022',
+        zh: 'TOEIC 890（听力与阅读），2022',
+      },
     },
   ],
 };

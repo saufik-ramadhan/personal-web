@@ -437,6 +437,8 @@ dl, dd { margin: 0; }
 
 .lang-row__name { font-size: 14px; font-weight: 700; }
 .lang-row__note { font-size: 12.5px; color: var(--fg-soft); }
+.lang-row__score { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+.lang-row__score::before { content: ' · '; }
 .meter { display: flex; gap: 3px; }
 .meter__seg { width: 16px; height: 4px; background: var(--line); }
 .meter__seg.is-on { background: var(--accent); }
