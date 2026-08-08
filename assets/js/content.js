@@ -20,25 +20,25 @@ const LANGS = [
 
 /* ── Interface strings ───────────────────────────────────────── */
 const UI = {
-  skip:      { en: 'Skip to content', id: 'Lewati ke konten', ko: '본문으로 건너뛰기', ja: '本文へスキップ', zh: '跳至正文' },
-  scroll:    { en: 'Scroll', id: 'Gulir', ko: '스크롤', ja: 'スクロール', zh: '向下滚动' },
-  basedIn:   { en: 'Based in', id: 'Berdomisili di', ko: '거주지', ja: '拠点', zh: '所在地' },
-  email:     { en: 'Email', id: 'Surel', ko: '이메일', ja: 'メール', zh: '邮箱' },
-  ctaWork:   { en: 'View work', id: 'Lihat karya', ko: '작업 보기', ja: '作品を見る', zh: '查看作品' },
-  ctaContact:{ en: 'Get in touch', id: 'Hubungi saya', ko: '연락하기', ja: 'お問い合わせ', zh: '联系我' },
-  menu:      { en: 'Menu', id: 'Menu', ko: '메뉴', ja: 'メニュー', zh: '菜单' },
-  language:  { en: 'Language', id: 'Bahasa', ko: '언어', ja: '言語', zh: '语言' },
-  toDark:    { en: 'Switch to dark theme', id: 'Beralih ke tema gelap', ko: '다크 테마로 전환', ja: 'ダークテーマに切り替え', zh: '切换到深色主题' },
-  toLight:   { en: 'Switch to light theme', id: 'Beralih ke tema terang', ko: '라이트 테마로 전환', ja: 'ライトテーマに切り替え', zh: '切换到浅色主题' },
-  level:     { en: 'Level', id: 'Tingkat', ko: '수준', ja: 'レベル', zh: '水平' },
+  skip: { en: 'Skip to content', id: 'Lewati ke konten', ko: '본문으로 건너뛰기', ja: '本文へスキップ', zh: '跳至正文' },
+  scroll: { en: 'Scroll', id: 'Gulir', ko: '스크롤', ja: 'スクロール', zh: '向下滚动' },
+  basedIn: { en: 'Based in', id: 'Berdomisili di', ko: '거주지', ja: '拠点', zh: '所在地' },
+  email: { en: 'Email', id: 'Surel', ko: '이메일', ja: 'メール', zh: '邮箱' },
+  ctaWork: { en: 'View work', id: 'Lihat karya', ko: '작업 보기', ja: '作品を見る', zh: '查看作品' },
+  ctaContact: { en: 'Get in touch', id: 'Hubungi saya', ko: '연락하기', ja: 'お問い合わせ', zh: '联系我' },
+  menu: { en: 'Menu', id: 'Menu', ko: '메뉴', ja: 'メニュー', zh: '菜单' },
+  language: { en: 'Language', id: 'Bahasa', ko: '언어', ja: '言語', zh: '语言' },
+  toDark: { en: 'Switch to dark theme', id: 'Beralih ke tema gelap', ko: '다크 테마로 전환', ja: 'ダークテーマに切り替え', zh: '切换到深色主题' },
+  toLight: { en: 'Switch to light theme', id: 'Beralih ke tema terang', ko: '라이트 테마로 전환', ja: 'ライトテーマに切り替え', zh: '切换到浅色主题' },
+  level: { en: 'Level', id: 'Tingkat', ko: '수준', ja: 'レベル', zh: '水平' },
 
-  stack:     { en: 'Tech stack', id: 'Teknologi', ko: '기술 스택', ja: '技術スタック', zh: '技术栈' },
-  tools:     { en: 'Tools', id: 'Perkakas', ko: '사용 툴', ja: 'ツール', zh: '工具' },
-  projects:  { en: 'Key projects', id: 'Proyek utama', ko: '주요 프로젝트', ja: '主なプロジェクト', zh: '主要项目' },
-  thesis:    { en: 'Thesis', id: 'Tesis', ko: '학위논문', ja: '修士論文', zh: '学位论文' },
-  issuedBy:  { en: 'Issued by', id: 'Diterbitkan oleh', ko: '발급 기관', ja: '発行機関', zh: '颁发机构' },
-  credential:{ en: 'Credential ID', id: 'ID Kredensial', ko: '자격 번호', ja: '認定番号', zh: '证书编号' },
-  viewMore:  { en: 'View project', id: 'Lihat proyek', ko: '프로젝트 보기', ja: 'プロジェクトを見る', zh: '查看项目' },
+  stack: { en: 'Tech stack', id: 'Teknologi', ko: '기술 스택', ja: '技術スタック', zh: '技术栈' },
+  tools: { en: 'Tools', id: 'Perkakas', ko: '사용 툴', ja: 'ツール', zh: '工具' },
+  projects: { en: 'Key projects', id: 'Proyek utama', ko: '주요 프로젝트', ja: '主なプロジェクト', zh: '主要项目' },
+  thesis: { en: 'Thesis', id: 'Tesis', ko: '학위논문', ja: '修士論文', zh: '学位论文' },
+  issuedBy: { en: 'Issued by', id: 'Diterbitkan oleh', ko: '발급 기관', ja: '発行機関', zh: '颁发机构' },
+  credential: { en: 'Credential ID', id: 'ID Kredensial', ko: '자격 번호', ja: '認定番号', zh: '证书编号' },
+  viewMore: { en: 'View project', id: 'Lihat proyek', ko: '프로젝트 보기', ja: 'プロジェクトを見る', zh: '查看项目' },
 
   contactKicker: {
     en: 'Have a project in mind? Let’s talk.',
@@ -58,15 +58,15 @@ const UI = {
 
 /* ── Navigation / section titles ─────────────────────────────── */
 const SECTIONS = {
-  about:          { en: 'About',          id: 'Tentang',     ko: '소개',   ja: '概要',   zh: '关于' },
-  education:      { en: 'Education',      id: 'Pendidikan',  ko: '학력',   ja: '学歴',   zh: '教育' },
-  experience:     { en: 'Experience',     id: 'Pengalaman',  ko: '경력',   ja: '職歴',   zh: '经历' },
-  design:         { en: '3D Design',      id: 'Desain 3D',   ko: '3D 디자인', ja: '3Dデザイン', zh: '3D 设计' },
-  electronics:    { en: 'Electronics',    id: 'Elektronika', ko: '전자·임베디드', ja: '電子・組込み', zh: '电子与嵌入式' },
-  certifications: { en: 'Certifications', id: 'Sertifikasi', ko: '자격증', ja: '資格',   zh: '证书' },
-  awards:         { en: 'Awards',         id: 'Penghargaan', ko: '수상',   ja: '受賞',   zh: '奖项' },
-  languages:      { en: 'Languages',      id: 'Bahasa',      ko: '언어 능력', ja: '語学力', zh: '语言能力' },
-  contact:        { en: 'Contact',        id: 'Kontak',      ko: '연락처', ja: '連絡先', zh: '联系' },
+  about: { en: 'About', id: 'Tentang', ko: '소개', ja: '概要', zh: '关于' },
+  education: { en: 'Education', id: 'Pendidikan', ko: '학력', ja: '学歴', zh: '教育' },
+  experience: { en: 'Experience', id: 'Pengalaman', ko: '경력', ja: '職歴', zh: '经历' },
+  design: { en: '3D Design', id: 'Desain 3D', ko: '3D 디자인', ja: '3Dデザイン', zh: '3D 设计' },
+  electronics: { en: 'Electronics', id: 'Elektronika', ko: '전자·임베디드', ja: '電子・組込み', zh: '电子与嵌入式' },
+  certifications: { en: 'Certifications', id: 'Sertifikasi', ko: '자격증', ja: '資格', zh: '证书' },
+  awards: { en: 'Awards', id: 'Penghargaan', ko: '수상', ja: '受賞', zh: '奖项' },
+  languages: { en: 'Languages', id: 'Bahasa', ko: '언어 능력', ja: '語学力', zh: '语言能力' },
+  contact: { en: 'Contact', id: 'Kontak', ko: '연락처', ja: '連絡先', zh: '联系' },
 };
 
 /* ── Content ─────────────────────────────────────────────────── */
@@ -103,8 +103,8 @@ const CONTENT = {
     },
     email: 'ramadhan.saufik@gmail.com',
     links: [
-      { label: 'GitHub',  url: 'https://github.com/saufik-ramadhan' },
-      { label: 'Website', url: 'https://saufik-ramadhan.github.io' },
+      { label: 'GitHub', url: 'https://github.com/saufik-ramadhan' },
+      { label: 'Website', url: 'https://saufik.web.id' },
       // TODO: add your LinkedIn / Behance / Instagram here
     ],
   },
