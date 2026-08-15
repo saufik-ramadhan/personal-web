@@ -39,6 +39,7 @@ const UI = {
   issuedBy: { en: 'Issued by', id: 'Diterbitkan oleh', ko: '발급 기관', ja: '発行機関', zh: '颁发机构' },
   credential: { en: 'Credential ID', id: 'ID Kredensial', ko: '자격 번호', ja: '認定番号', zh: '证书编号' },
   viewMore: { en: 'View project', id: 'Lihat proyek', ko: '프로젝트 보기', ja: 'プロジェクトを見る', zh: '查看项目' },
+  playDemo: { en: 'Play in browser', id: 'Mainkan di peramban', ko: '브라우저에서 플레이', ja: 'ブラウザでプレイ', zh: '在浏览器中试玩' },
 
   contactKicker: {
     en: 'Have a project in mind? Let’s talk.',
@@ -457,6 +458,7 @@ const CONTENT = {
         zh: 'ESP32-S3 读取 GY-87 惯性模块，将板子的横滚角转换为转向值，并以 50 Hz 通过低功耗蓝牙发送。three.js 游戏经由 Web Bluetooth API 接收——无需驱动、无需应用、无需安装。固件使用两条独立的 I²C 总线，避免 OLED 的缓慢刷新拖慢传感器读取，并会自动探测板上实际搭载的磁力计与气压计型号。',
       },
       stack: ['ESP32-S3', 'ESP-IDF', 'NimBLE', 'I²C', 'three.js', 'Web Bluetooth', 'Vite'],
+      demo: 'https://saufik.web.id/imu-racer/',
       link: 'https://github.com/saufik-ramadhan/imu-racer',
     },
     {

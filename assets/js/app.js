@@ -241,6 +241,12 @@
       var li = entry(item.year, t(item.title));
       li.main.appendChild(el('p', 'entry__detail', t(item.desc)));
       if (item.stack && item.stack.length) li.main.appendChild(metaLine('stack', item.stack));
+      /* `demo` is optional and comes first — something playable beats source. */
+      if (item.demo) {
+        var d = el('p', 'meta-line');
+        d.appendChild(externalLink(item.demo, t(UI.playDemo) + ' →'));
+        li.main.appendChild(d);
+      }
       if (item.link) {
         var p = el('p', 'meta-line');
         p.appendChild(externalLink(item.link, t(UI.viewMore) + ' →'));
