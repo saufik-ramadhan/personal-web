@@ -441,6 +441,25 @@ const CONTENT = {
   /* ── 05 Electronics / embedded ─────────────────────────────── */
   electronics: [
     {
+      year: '2026',
+      title: {
+        en: 'IMU Racer — Tilt-Steered Browser Game',
+        id: 'IMU Racer — Game Peramban Berkemudi Kemiringan',
+        ko: 'IMU Racer — 기울여 조종하는 브라우저 게임',
+        ja: 'IMU Racer — 傾けて操作するブラウザゲーム',
+        zh: 'IMU Racer — 体感操控的浏览器游戏',
+      },
+      desc: {
+        en: 'An ESP32-S3 reads a GY-87 inertial module, turns the board’s roll angle into a steering value and streams it over Bluetooth Low Energy at 50 Hz. A three.js game picks it up through the Web Bluetooth API — no driver, no app, no install. The firmware runs two separate I²C buses so a slow OLED refresh never delays a sensor read, and probes for whichever magnetometer and barometer variant the board actually carries.',
+        id: 'Sebuah ESP32-S3 membaca modul inersia GY-87, mengubah sudut kemiringan papan menjadi nilai kemudi, lalu mengirimkannya lewat Bluetooth Low Energy pada 50 Hz. Game three.js menerimanya melalui Web Bluetooth API — tanpa driver, tanpa aplikasi, tanpa instalasi. Firmware-nya menjalankan dua jalur I²C terpisah agar penyegaran OLED yang lambat tidak pernah menunda pembacaan sensor, dan memeriksa varian magnetometer serta barometer mana yang sebenarnya terpasang.',
+        ko: 'ESP32-S3가 GY-87 관성 모듈을 읽어 보드의 롤 각도를 조향 값으로 바꾸고, 이를 50 Hz로 Bluetooth Low Energy를 통해 전송합니다. three.js 게임이 Web Bluetooth API로 이를 받습니다 — 드라이버도, 앱도, 설치도 필요 없습니다. 펌웨어는 느린 OLED 갱신이 센서 읽기를 지연시키지 않도록 I²C 버스를 두 개로 분리했고, 보드에 실제로 실장된 자력계와 기압계 종류를 탐지합니다.',
+        ja: 'ESP32-S3 が GY-87 慣性モジュールを読み取り、基板のロール角をステアリング値に変換して Bluetooth Low Energy で 50 Hz 送信します。three.js のゲームが Web Bluetooth API 経由でそれを受け取ります — ドライバーもアプリもインストールも不要です。ファームウェアは OLED の遅い描画がセンサー読み取りを妨げないよう I²C バスを 2 系統に分け、基板に実装されている地磁気センサーと気圧センサーの種類を判別します。',
+        zh: 'ESP32-S3 读取 GY-87 惯性模块，将板子的横滚角转换为转向值，并以 50 Hz 通过低功耗蓝牙发送。three.js 游戏经由 Web Bluetooth API 接收——无需驱动、无需应用、无需安装。固件使用两条独立的 I²C 总线，避免 OLED 的缓慢刷新拖慢传感器读取，并会自动探测板上实际搭载的磁力计与气压计型号。',
+      },
+      stack: ['ESP32-S3', 'ESP-IDF', 'NimBLE', 'I²C', 'three.js', 'Web Bluetooth', 'Vite'],
+      link: 'https://github.com/saufik-ramadhan/imu-racer',
+    },
+    {
       year: '2018',
       title: {
         en: 'Smart Glove System for Aphasia Communication (SGSCA)',
