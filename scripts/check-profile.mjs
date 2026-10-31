@@ -33,6 +33,7 @@ translations({ UI, SECTIONS, CONTENT: c });
 assert.equal(c.certifications.length, 0, 'Only publish independently confirmed certifications');
 assert(!JSON.stringify(c).includes('20XX'), 'Remove example facts');
 assert(c.meta.name.includes('사우픽 라마단'), 'Retain the user-confirmed Korean spelling');
+assert.equal(c.education.find(e => e.id === 'KATAPANG').school.ko, '카타팡 제1직업고등학교', 'Translate the vocational school name in Korean');
 assert(c.about.skills[0].items.includes('ESP-NOW'), 'Hardware skills must come first');
 for (const skill of ['C#', 'WPF']) assert(c.about.skills.some(g => g.items.includes(skill)), `Missing ${skill}`);
 assert.equal(c.languages[1].level, undefined, 'Do not infer a proficiency rating from the test score');

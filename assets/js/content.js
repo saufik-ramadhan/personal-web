@@ -429,7 +429,7 @@ const CONTENT = {
       "school": {
         "en": "Vocational School 1 Katapang",
         "id": "SMK Negeri 1 Katapang",
-        "ko": "Vocational School 1 Katapang (카타팡 제1직업고등학교)",
+        "ko": "카타팡 제1직업고등학교",
         "ja": "Vocational School 1 Katapang（カタパン第1職業高校）",
         "zh": "Vocational School 1 Katapang（卡塔邦第一职业学校）"
       },
