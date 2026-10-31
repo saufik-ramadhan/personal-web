@@ -389,11 +389,11 @@ const CONTENT = {
         "zh": "硕士，微电子学"
       },
       "detail": {
-        "en": "GPA 3.37 · Bandung, Indonesia",
-        "id": "IPK 3.37 · Bandung, Indonesia",
-        "ko": "평점 3.37 · 인도네시아 반둥",
-        "ja": "GPA 3.37 · インドネシア・バンドン",
-        "zh": "GPA 3.37 · 印度尼西亚万隆"
+        "en": "GPA 3.39 · Bandung, Indonesia",
+        "id": "IPK 3.39 · Bandung, Indonesia",
+        "ko": "평점 3.39 · 인도네시아 반둥",
+        "ja": "GPA 3.39 · インドネシア・バンドン",
+        "zh": "GPA 3.39 · 印度尼西亚万隆"
       },
       "thesis": "Design of a Mesh Network Using the OLSRv2 Protocol on Resource-Constrained Devices",
       "id": "ITB"
