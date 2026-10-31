@@ -105,7 +105,7 @@ dl, dd { margin: 0; }
 /* Comma-separated inline lists — denser than pills. */
 .inline-list { display: inline; color: var(--fg-soft); }
 .inline-list li { display: inline; }
-.inline-list li:not(:last-child)::after { content: ',\00a0'; color: var(--faint); }
+.inline-list li:not(:last-child)::after { content: ', '; color: var(--faint); }
 
 .meta-line { margin-top: 5px; font-size: 12.5px; line-height: 1.5; }
 .meta-line .label { margin-right: 8px; }
@@ -338,6 +338,7 @@ dl, dd { margin: 0; }
 @media (min-width: 780px) { .section__title { margin-top: 1px; } }
 
 .section__body { min-width: 0; }
+.masthead__korean { display: block; margin-top: 8px; font-family: var(--sans); font-size: 0.48em; line-height: 1.3; word-break: keep-all; }
 
 /* ── About ───────────────────────────────────────────────────── */
 .prose p { font-size: 14px; line-height: 1.68; color: var(--fg-soft); }
@@ -356,7 +357,8 @@ dl, dd { margin: 0; }
   border-top: 1px solid var(--line);
   font-size: 12.5px;
 }
-.deflist__row { display: grid; gap: 1px 14px; padding: 5px 0; border-bottom: 1px dotted var(--line); }
+.deflist__row { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1px 14px; padding: 5px 0; border-bottom: 1px dotted var(--line); }
+.deflist__row > * { min-width: 0; }
 .deflist__row:last-child { border-bottom: 0; }
 /* Same left column as the entry/row lists, so the labels line up with the
    period column of the sections below. */

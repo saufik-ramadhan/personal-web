@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "reviewed_date": "2026-10-31",
+  "locales": [
+    "en",
+    "id",
+    "ko",
+    "ja",
+    "zh"
+  ],
+  "cv_source_sha256": {
+    "candidate_facts.json": "f7bd4f3c1c68a6831d52c22a653f65a9fca410c9151cb5f01c67e702aa2d8f5d",
+    "project_catalog.json": "2a6f8f429f0abd9ab584c082ebe593d380196fb9bb687bbaa211dcb25dab71f0",
+    "cv_entries.json": "464c37eb17a9ea6accc4225f6113fb773c8277e39b10140e634135d919bdcb9f"
+  },
+  "website_content_sha256": "82ef46e0e940c1ae226e986e5f1496f0ce3523876f6456b1cd5bd7d2615c33b4"
+}

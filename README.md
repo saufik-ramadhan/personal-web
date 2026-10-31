@@ -29,19 +29,21 @@ Each user-visible string is an object keyed by language code:
 title: { en: 'Project title', id: '…', ko: '…', ja: '…', zh: '…' }
 ```
 
-Missing languages fall back to `en`, so you can add an entry in English first
-and translate it later. Entries marked `// TODO` in that file are placeholders:
+Keep all five translations complete in the same change. Runtime English
+fallback is defensive only; the profile checker rejects missing translations.
+The website and **both English and Korean CVs must stay synchronized**.
 
 | Section | Status |
 | --- | --- |
 | About, Education, Experience | Real data from the CV |
-| Electronics — SGSCA | Real |
-| Awards — National Electromedical Weeks 2018 | Real |
+| Embedded — ESP32 thesis, STM32 control, IMU Racer, SGSCA | Documented projects; prototype limits retained |
+| Desktop — LensaLAN and MagickGUI | Documented prototypes; LensaLAN uses Qt/QML, not WPF |
+| Awards — Electromedical Innovation Week 2018 | Second place, Life Support category, Politeknik Kemenkes Surabaya |
 | 3D design — all three pieces | Real (from Printables) |
-| **Certifications** | **Placeholder — 2 slots to fill in** |
-| **Languages** | Indonesian + English, **check the levels** |
+| Certifications | Empty; no unverified examples published |
+| Languages | Indonesian native; reported English score with TOEIC/EPT certificate-label caveat; no invented proficiency rating |
 
-Removing every item from `design`, `electronics`, `certifications`, `awards` or
+Removing every item from `design`, `electronics`, `software`, `certifications`, `awards` or
 `languages` hides that section automatically.
 
 ### 3D portfolio images
@@ -67,6 +69,42 @@ Add it to `LANGS` at the top of `content.js` and fill in the matching key
 across the file. Nothing else needs to change.
 
 ## Deployment
+
+### Keep the CV and all website languages aligned
+
+The workspace CV source lives in
+`../output/KCCI-Tailored-Applications/data/`: `candidate_facts.json`,
+`project_catalog.json` and `cv_entries.json`. Education now includes Vocational
+School 1 Katapang (Computer and Network Engineering, July 2012–June 2015).
+Employment periods retain the user-confirmed overlap. Hardware skills appear
+first; C# and WPF are user-declared skills, not the stack used by LensaLAN.
+
+The thesis repository is [esp32-olsrv2-thesis](https://github.com/saufik-ramadhan/esp32-olsrv2-thesis).
+The site preserves its historical five-node results and prototype limitations.
+Only code and four technical images were published there; no full thesis.
+
+For every future change to profile information:
+
+1. Update verified CV facts/project evidence and affected English **and** Korean
+   CV entries, general CVs, CSV mirrors, generated PDFs and archives.
+2. Update the corresponding English, Indonesian, Korean, Japanese and Chinese
+   website text together. Preserve evidence limits in every language.
+3. Run `node scripts/check-profile.mjs`. Changed CV fingerprints intentionally
+   fail until all translations have been reviewed against the latest CV.
+4. After that review, run `node scripts/check-profile.mjs --record`, then run
+   the normal check again. `--cv-dir <bundle-folder>` supports another location.
+   Recording acknowledges review; it does not translate or regenerate CVs.
+5. Check desktop/mobile layout and language switching, bump cache versions,
+   and verify the deployment after publishing.
+
+`profile-sync.json` stores hashes, not private CV contents. The local checker
+verifies translation coverage and the last reviewed website baseline. Without
+the sibling CV bundle it explicitly cannot verify current cross-workspace CV
+changes; run the full check in the CV workspace before pushing. The existing
+Pages workflow only publishes the site; run profile checks before publishing.
+Instructions are also
+recorded in [AGENTS.md](AGENTS.md). The public website keeps only a city-level
+location and does not copy private application details or the full thesis.
 
 Pushing to `main` publishes to GitHub Pages via
 [`.github/workflows/pages.yml`](.github/workflows/pages.yml).

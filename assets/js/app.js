@@ -16,7 +16,7 @@
   var lang = resolveInitialLang();
 
   /* Section order drives the nav, the numbering and the scroll spy. */
-  var NAV = ['about', 'education', 'experience', 'design', 'electronics', 'certifications', 'awards', 'languages'];
+  var NAV = ['about', 'education', 'experience', 'design', 'electronics', 'software', 'certifications', 'awards', 'languages'];
 
   /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -94,6 +94,9 @@
   function renderStaticText() {
     document.documentElement.lang = lang;
     document.title = C.meta.name + ' — ' + t(C.meta.role);
+    document.querySelector('meta[name="description"]').content = t(C.meta.tagline);
+    document.querySelector('meta[property="og:title"]').content = document.title;
+    document.querySelector('meta[property="og:description"]').content = t(C.meta.tagline);
 
     document.querySelectorAll('[data-i18n]').forEach(function (node) {
       var path = node.getAttribute('data-i18n').split('.');
@@ -104,6 +107,13 @@
     document.querySelectorAll('[data-bind]').forEach(function (node) {
       var key = node.getAttribute('data-bind').replace('meta.', '');
       node.textContent = t(C.meta[key]);
+      if (key === 'name' && node.tagName === 'H1') {
+        var split = C.meta.name.indexOf(' (');
+        if (split !== -1) {
+          node.textContent = C.meta.name.slice(0, split);
+          node.appendChild(el('span', 'masthead__korean', C.meta.name.slice(split + 1)));
+        }
+      }
     });
 
     var mail = document.getElementById('footer-email');
@@ -153,7 +163,9 @@
     ].forEach(function (target) {
       clear(target.list);
 
-      NAV.concat(['contact']).forEach(function (key, i) {
+      NAV.concat(['contact']).filter(function (key) {
+        return !Array.isArray(C[key]) || C[key].length;
+      }).forEach(function (key, i) {
         var li = el('li');
         var a = el('a', target.linkClass);
         a.href = '#' + key;
@@ -221,7 +233,7 @@
     var list = document.getElementById('experience-list');
     clear(list);
     C.experience.forEach(function (job) {
-      var li = entry(job.period, job.company, t(job.role), job.location ? t(job.location) : '');
+      var li = entry(t(job.period), job.company, t(job.role), job.location ? t(job.location) : '');
 
       var bullets = el('ul', 'bullets');
       job.bullets.forEach(function (b) { bullets.appendChild(el('li', null, t(b))); });
@@ -235,9 +247,14 @@
   }
 
   function renderElectronics() {
-    var list = document.getElementById('electronics-list');
+    renderProjects('electronics');
+    renderProjects('software');
+  }
+
+  function renderProjects(section) {
+    var list = document.getElementById(section + '-list');
     clear(list);
-    C.electronics.forEach(function (item) {
+    C[section].forEach(function (item) {
       var li = entry(item.year, t(item.title));
       li.main.appendChild(el('p', 'entry__detail', t(item.desc)));
       if (item.stack && item.stack.length) li.main.appendChild(metaLine('stack', item.stack));
@@ -376,13 +393,15 @@
       }
       li.appendChild(note);
 
-      var meter = el('span', 'meter');
-      meter.setAttribute('role', 'img');
-      meter.setAttribute('aria-label', t(UI.level) + ' ' + item.level + '/5');
-      for (var i = 1; i <= 5; i++) {
-        meter.appendChild(el('span', 'meter__seg' + (i <= item.level ? ' is-on' : '')));
+      if (typeof item.level === 'number') {
+        var meter = el('span', 'meter');
+        meter.setAttribute('role', 'img');
+        meter.setAttribute('aria-label', t(UI.level) + ' ' + item.level + '/5');
+        for (var i = 1; i <= 5; i++) {
+          meter.appendChild(el('span', 'meter__seg' + (i <= item.level ? ' is-on' : '')));
+        }
+        li.appendChild(meter);
       }
-      li.appendChild(meter);
 
       list.appendChild(li);
     });
@@ -391,12 +410,20 @@
   /** Sections with no data would render as an empty heading — hide them. */
   function hideEmptySections() {
     var map = {
-      design: C.design, electronics: C.electronics,
+      design: C.design, electronics: C.electronics, software: C.software,
       certifications: C.certifications, awards: C.awards, languages: C.languages,
     };
     Object.keys(map).forEach(function (id) {
       var section = document.getElementById(id);
       if (section) section.hidden = !(map[id] && map[id].length);
+    });
+    var number = 0;
+    NAV.forEach(function (id) {
+      var section = document.getElementById(id);
+      if (section && !section.hidden) {
+        number += 1;
+        section.querySelector('.section__num').textContent = String(number).padStart(2, '0');
+      }
     });
   }
 
