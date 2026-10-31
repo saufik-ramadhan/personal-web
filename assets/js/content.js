@@ -128,10 +128,16 @@ const SECTIONS = {
     "ko": "데스크톱 소프트웨어",
     "ja": "デスクトップソフトウェア",
     "zh": "桌面软件"
+  },
+  "training": {
+    "en": "Additional Training",
+    "id": "Pelatihan Tambahan",
+    "ko": "교육이수사항",
+    "ja": "追加研修",
+    "zh": "补充培训"
   }
 };
 
-/* ── Content ─────────────────────────────────────────────────── */
 const CONTENT = {
   "meta": {
     "name": "Saufik Ramadhan (사우픽 라마단)",
@@ -951,6 +957,42 @@ const CONTENT = {
         "electron-builder / NSIS"
       ],
       "link": "https://github.com/saufik-ramadhan/magick-gui"
+    }
+  ],
+  "training": [
+    {
+      "id": "KCCI-2026",
+      "start": "2026-07",
+      "expected_end": "2026-11",
+      "total_planned_hours": 500,
+      "name": {
+        "en": "Overseas Technical Talent Training Program (500 hours)",
+        "id": "Program Pelatihan Talenta Teknis Luar Negeri (500 jam)",
+        "ko": "해외 전문기술인력 양성교육 (총500시간)",
+        "ja": "海外技術人材育成研修（計500時間）",
+        "zh": "海外技术人才培养培训（共500小时）"
+      },
+      "provider": {
+        "en": "Korea Chamber of Commerce and Industry (KCCI)",
+        "id": "Kamar Dagang dan Industri Korea (KCCI)",
+        "ko": "대한상공회의소",
+        "ja": "大韓商工会議所（KCCI）",
+        "zh": "大韩商工会议所（KCCI）"
+      },
+      "period": {
+        "en": "2026.07 - 2026.11 (expected completion)",
+        "id": "2026.07 - 2026.11 (rencana selesai)",
+        "ko": "2026.07 - 2026.11 (예정)",
+        "ja": "2026.07 - 2026.11（修了予定）",
+        "zh": "2026.07 - 2026.11（预计完成）"
+      },
+      "description": {
+        "en": "Planned curriculum: Korean language and culture, 200 hours; technical training, 300 hours, comprising Firmware Development, Electronic Hardware Design and Semiconductor Design, 100 hours each. Completion is expected in November 2026.",
+        "id": "Kurikulum yang direncanakan: bahasa dan budaya Korea 200 jam; pelatihan teknis 300 jam, terdiri dari Pengembangan Firmware, Desain Hardware Elektronik, dan Desain Semikonduktor, masing-masing 100 jam. Selesai direncanakan pada November 2026.",
+        "ko": "교육 구성: 한국어 및 한국문화 200시간, 직무교육 300시간. 직무교육은 Firmware Development, Electronic Hardware Design, Semiconductor Design 각 100시간으로 구성됩니다. 2026년 11월 이수 예정입니다.",
+        "ja": "研修構成は韓国語・韓国文化200時間と職務研修300時間です。職務研修はファームウェア開発、電子ハードウェア設計、半導体設計の各100時間で構成され、2026年11月修了予定です。",
+        "zh": "课程计划包括韩语与韩国文化200小时，以及专业技术培训300小时。技术培训分为固件开发、电子硬件设计、半导体设计，各100小时。预计2026年11月完成。"
+      }
     }
   ]
 };

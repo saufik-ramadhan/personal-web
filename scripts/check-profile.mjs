@@ -31,6 +31,12 @@ function translations(value, key = 'content') {
 }
 translations({ UI, SECTIONS, CONTENT: c });
 assert.equal(c.certifications.length, 0, 'Only publish independently confirmed certifications');
+assert.equal(c.training.length, 1, 'Keep the user-supplied KCCI training separate from certifications');
+for (const code of codes) {
+  for (const hours of ['200', '300', '100']) assert(c.training[0].description[code].includes(hours), `Training ${code}: missing hours`);
+  assert(c.training[0].name[code].includes('500'), `Training ${code}: missing total`);
+  assert(c.training[0].period[code].includes('2026.07') && c.training[0].period[code].includes('2026.11'));
+}
 assert(!JSON.stringify(c).includes('20XX'), 'Remove example facts');
 assert(c.meta.name.includes('사우픽 라마단'), 'Retain the user-confirmed Korean spelling');
 assert.equal(c.education.find(e => e.id === 'KATAPANG').school.ko, '카타팡 제1직업고등학교', 'Translate the vocational school name in Korean');
@@ -62,6 +68,18 @@ if (hasCV) {
   assert.equal(c.meta.name, `${facts.name} (${facts.korean_transliteration})`);
   assert.equal(c.meta.email, facts.email);
   assert.equal(c.education.length, facts.education.length);
+  assert.equal(c.training.length, facts.additional_training.length);
+  facts.additional_training.forEach((item, i) => {
+    assert.equal(c.training[i].id, item.id);
+    assert.equal(c.training[i].start, item.start);
+    assert.equal(c.training[i].expected_end, item.expected_end);
+    assert.equal(c.training[i].total_planned_hours, item.total_planned_hours);
+    assert.equal(item.language_culture_hours + item.technical_hours, item.total_planned_hours);
+    for (const language of ['EN','KO']) {
+      assert.equal(c.training[i].name[language.toLowerCase()], item[language].name);
+      assert.equal(c.training[i].provider[language.toLowerCase()], item[language].provider);
+    }
+  });
   facts.education.forEach((f, i) => {
     assert.equal(c.education[i].period, `${f.start.replace('-', '.')} - ${f.end.replace('-', '.')}`);
     if (f.gpa) for (const code of codes) assert(c.education[i].detail[code].includes(f.gpa));

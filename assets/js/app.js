@@ -16,7 +16,7 @@
   var lang = resolveInitialLang();
 
   /* Section order drives the nav, the numbering and the scroll spy. */
-  var NAV = ['about', 'education', 'experience', 'design', 'electronics', 'software', 'certifications', 'awards', 'languages'];
+  var NAV = ['about', 'education', 'experience', 'design', 'electronics', 'software', 'training', 'certifications', 'awards', 'languages'];
 
   /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -363,6 +363,16 @@
     });
   }
 
+  function renderTraining() {
+    var list = document.getElementById('training-list');
+    clear(list);
+    C.training.forEach(function (item) {
+      var li = entry(t(item.period), t(item.name), t(item.provider));
+      li.main.appendChild(el('p', 'entry__detail', t(item.description)));
+      list.appendChild(li);
+    });
+  }
+
   function renderAwards() {
     var list = document.getElementById('awards-list');
     clear(list);
@@ -411,7 +421,7 @@
   function hideEmptySections() {
     var map = {
       design: C.design, electronics: C.electronics, software: C.software,
-      certifications: C.certifications, awards: C.awards, languages: C.languages,
+      training: C.training, certifications: C.certifications, awards: C.awards, languages: C.languages,
     };
     Object.keys(map).forEach(function (id) {
       var section = document.getElementById(id);
@@ -437,6 +447,7 @@
     renderDesign();
     renderElectronics();
     renderCertifications();
+    renderTraining();
     renderAwards();
     renderLanguages();
     hideEmptySections();

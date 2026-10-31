@@ -9,9 +9,9 @@
     "zh"
   ],
   "cv_source_sha256": {
-    "candidate_facts.json": "542720f2f19c6179f31e42438c6645d176877082d142dd3452ee5f5051f16663",
+    "candidate_facts.json": "1a16219605d66a0caa1e7d8fc0b62df26640418813bc3f3be2e8a4ad25af2e9b",
     "project_catalog.json": "2a6f8f429f0abd9ab584c082ebe593d380196fb9bb687bbaa211dcb25dab71f0",
     "cv_entries.json": "b98a6b19518ed069d32cf42b59383ba4bd4bae25e39777e79cd0896c41a0be14"
   },
-  "website_content_sha256": "a3bab2bcadb5ec7b8a4f0d2f653e5665d4e48fdf6b579361df0418275f25c934"
+  "website_content_sha256": "56a063ae956e228024c6bb51a4ff41b7f267efe9ab481d4e45c8110b21845ebe"
 }

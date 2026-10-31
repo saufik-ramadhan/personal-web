@@ -41,9 +41,10 @@ The website and **both English and Korean CVs must stay synchronized**.
 | Awards — Electromedical Innovation Week 2018 | Second place, Life Support category, Politeknik Kemenkes Surabaya |
 | 3D design — all three pieces | Real (from Printables) |
 | Certifications | Empty; no unverified examples published |
+| Additional Training | KCCI 500-hour program, July–November 2026 (expected completion); 200 hours Korean language/culture and 300 hours technical training |
 | Languages | Indonesian native; reported English score with TOEIC/EPT certificate-label caveat; no invented proficiency rating |
 
-Removing every item from `design`, `electronics`, `software`, `certifications`, `awards` or
+Removing every item from `design`, `electronics`, `software`, `training`, `certifications`, `awards` or
 `languages` hides that section automatically.
 
 ### 3D portfolio images
