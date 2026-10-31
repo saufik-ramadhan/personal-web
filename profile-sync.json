@@ -11,7 +11,7 @@
   "cv_source_sha256": {
     "candidate_facts.json": "1a16219605d66a0caa1e7d8fc0b62df26640418813bc3f3be2e8a4ad25af2e9b",
     "project_catalog.json": "2a6f8f429f0abd9ab584c082ebe593d380196fb9bb687bbaa211dcb25dab71f0",
-    "cv_entries.json": "1c94b200e0d8e4ea97c74c0d51f861c20671b2c28953bc2de504fb24cf76e950"
+    "cv_entries.json": "5875d0ac9ea5438fd67833a5a6cc0a51be12ef1bbcca1199c39c6779ff26ec37"
   },
   "website_content_sha256": "56a063ae956e228024c6bb51a4ff41b7f267efe9ab481d4e45c8110b21845ebe"
 }
