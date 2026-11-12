@@ -776,7 +776,19 @@ const CONTENT = {
         "USB CDC",
         "CMake"
       ],
-      "link": "https://github.com/saufik-ramadhan/firware-reflow-oven-bluepill"
+      "link": "https://github.com/saufik-ramadhan/firware-reflow-oven-bluepill",
+      "projectLinks": [
+        {
+          "url": "https://drive.google.com/drive/folders/1-HmwSTl4Mwm_-uYlWWNUzncq230t4D2V?usp=drive_link",
+          "label": {
+            "en": "Reflow PCB files",
+            "id": "File PCB reflow",
+            "ko": "리플로우 PCB 파일",
+            "ja": "リフロー基板ファイル",
+            "zh": "回流焊 PCB 文件"
+          }
+        }
+      ]
     },
     {
       "year": "2026",

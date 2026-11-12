@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "reviewed_date": "2026-10-31",
+  "reviewed_date": "2026-11-12",
   "locales": [
     "en",
     "id",
@@ -10,8 +10,8 @@
   ],
   "cv_source_sha256": {
     "candidate_facts.json": "1a16219605d66a0caa1e7d8fc0b62df26640418813bc3f3be2e8a4ad25af2e9b",
-    "project_catalog.json": "2a6f8f429f0abd9ab584c082ebe593d380196fb9bb687bbaa211dcb25dab71f0",
+    "project_catalog.json": "572f1141324b791e01b050a23c74f4d788ccff1c70ba07bea3784a8d140c6e4f",
     "cv_entries.json": "5593ed3c4543fa3c2512e384663af5cef0effa30f2470eac8520fedd4944a81f"
   },
-  "website_content_sha256": "56a063ae956e228024c6bb51a4ff41b7f267efe9ab481d4e45c8110b21845ebe"
+  "website_content_sha256": "c9da3b5730ff0abbc596a845c83cfb94fdb1d9eff23da5f0255d422d5565ca43"
 }

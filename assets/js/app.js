@@ -269,6 +269,11 @@
         p.appendChild(externalLink(item.link, t(UI.viewMore) + ' →'));
         li.main.appendChild(p);
       }
+      (item.projectLinks || []).forEach(function (link) {
+        var p = el('p', 'meta-line');
+        p.appendChild(externalLink(link.url, t(link.label) + ' →'));
+        li.main.appendChild(p);
+      });
       list.appendChild(li);
     });
   }
