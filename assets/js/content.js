@@ -749,7 +749,7 @@ const CONTENT = {
     },
     {
       "id": "REFLOW",
-      "year": "",
+      "year": "2026",
       "title": {
         "en": "STM32 Blue Pill Reflow / Hot-Plate Control Firmware",
         "id": "Firmware Kendali Reflow / Hot-Plate STM32 Blue Pill",
@@ -999,7 +999,19 @@ const CONTENT = {
       ],
       "demo": "https://saufik.web.id/imu-racer/",
       "link": "https://github.com/saufik-ramadhan/imu-racer",
-      "id": "IMU"
+      "id": "IMU",
+      "media": [
+        {
+          "src": "assets/img/portfolio/imu-racer-demo.png",
+          "caption": {
+            "en": "Browser race and motion controller",
+            "id": "Balapan di browser dan pengendali gerak",
+            "ko": "브라우저 레이싱과 모션 컨트롤러",
+            "ja": "ブラウザーでのレースとモーションコントローラー",
+            "zh": "浏览器赛车与动作控制器"
+          }
+        }
+      ]
     },
     {
       "year": "2018",
@@ -1124,7 +1136,29 @@ const CONTENT = {
         "Windows Service",
         "IPC"
       ],
-      "link": "https://github.com/saufik-ramadhan/lensalan"
+      "link": "https://github.com/saufik-ramadhan/lensalan",
+      "media": [
+        {
+          "src": "assets/img/portfolio/lensalan-live.png",
+          "caption": {
+            "en": "Live camera monitoring",
+            "id": "Pemantauan kamera langsung",
+            "ko": "실시간 카메라 모니터링",
+            "ja": "カメラのライブ監視",
+            "zh": "实时摄像监控"
+          }
+        },
+        {
+          "src": "assets/img/portfolio/lensalan-events.png",
+          "caption": {
+            "en": "Engine status and recorded events",
+            "id": "Status engine dan rekaman peristiwa",
+            "ko": "엔진 상태와 이벤트 기록",
+            "ja": "エンジンの状態とイベント録画",
+            "zh": "引擎状态与事件录像"
+          }
+        }
+      ]
     },
     {
       "id": "MAGICK",
@@ -1150,7 +1184,19 @@ const CONTENT = {
         "Python/rembg",
         "electron-builder / NSIS"
       ],
-      "link": "https://github.com/saufik-ramadhan/magick-gui"
+      "link": "https://github.com/saufik-ramadhan/magick-gui",
+      "media": [
+        {
+          "src": "assets/img/portfolio/magickgui-preview.png",
+          "caption": {
+            "en": "Conversion interface preview from the project documentation",
+            "id": "Pratinjau antarmuka konversi dari dokumentasi proyek",
+            "ko": "프로젝트 문서의 변환 인터페이스 미리 보기",
+            "ja": "プロジェクト文書の変換画面プレビュー",
+            "zh": "项目文档中的转换界面预览"
+          }
+        }
+      ]
     }
   ],
   "training": [

@@ -383,6 +383,9 @@ dl, dd { margin: 0; }
 .entry__thesis { font-style: italic; color: var(--fg-soft); }
 .entry__gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 12px 0; }
 .entry__figure { margin: 0; min-width: 0; }
+.entry__figure:only-child { grid-column: 1 / -1; width: min(100%, 480px); }
+.entry__figure:only-child .entry__thumbnail { aspect-ratio: auto; }
+.entry__figure:only-child img { height: auto; }
 .entry__thumbnail { display: block; aspect-ratio: 16 / 10; overflow: hidden; border: 1px solid var(--line); }
 .entry__thumbnail img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .entry__caption { margin-top: 4px; color: var(--fg-soft); font-size: 12px; line-height: 1.4; }

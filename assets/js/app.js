@@ -251,10 +251,16 @@
     renderProjects('software');
   }
 
+  function newestProjectsFirst(projects) {
+    return projects.slice().sort(function (a, b) {
+      return (Number(b.year) || 0) - (Number(a.year) || 0);
+    });
+  }
+
   function renderProjects(section) {
     var list = document.getElementById(section + '-list');
     clear(list);
-    C[section].forEach(function (item) {
+    newestProjectsFirst(C[section]).forEach(function (item) {
       var li = entry(item.year, t(item.title));
       li.main.appendChild(el('p', 'entry__detail', t(item.desc)));
       if (item.stack && item.stack.length) li.main.appendChild(metaLine('stack', item.stack));
@@ -326,7 +332,7 @@
   function renderDesign() {
     var list = document.getElementById('design-list');
     clear(list);
-    C.design.forEach(function (item, i) {
+    newestProjectsFirst(C.design).forEach(function (item, i) {
       var article = el('article', 'piece reveal');
 
       /* `images` (list) wins; `image` (single) still works. */

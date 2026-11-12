@@ -10,8 +10,8 @@
   ],
   "cv_source_sha256": {
     "candidate_facts.json": "1a16219605d66a0caa1e7d8fc0b62df26640418813bc3f3be2e8a4ad25af2e9b",
-    "project_catalog.json": "572f1141324b791e01b050a23c74f4d788ccff1c70ba07bea3784a8d140c6e4f",
+    "project_catalog.json": "4d22555e0d9eaa458da6e63d07cebddb9270d20d43b5b0cf006aab4df284e305",
     "cv_entries.json": "5593ed3c4543fa3c2512e384663af5cef0effa30f2470eac8520fedd4944a81f"
   },
-  "website_content_sha256": "61b1bf6f38d0705f5b12dc0cc4df8868736d0d92ce0e90fe168a953e8382c5f2"
+  "website_content_sha256": "38e0c85d40cde2422140139f9b6f51bed6a08bf5fc76384f4a5444c918fb468a"
 }
