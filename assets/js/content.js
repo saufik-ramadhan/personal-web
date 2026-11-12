@@ -758,11 +758,11 @@ const CONTENT = {
         "zh": "STM32 Blue Pill 回流／热板控制固件"
       },
       "desc": {
-        "en": "Experimental STM32F103C8T6 firmware with NTC temperature sensing, two-point calibration, PID control, SSD1306 and FreeRTOS tasks. USB CDC connects Raspberry Pi inspection results to conveyor PASS/FAIL sorting. The automatic proof-of-concept profile is capped at 120°C; the planned Sn63/Pb37 reflow cycle remains locked pending thermal validation.",
-        "id": "Firmware eksperimental STM32F103C8T6 dengan sensor suhu NTC, kalibrasi dua titik, kendali PID, SSD1306, dan task FreeRTOS. USB CDC menghubungkan hasil inspeksi Raspberry Pi ke penyortiran konveyor PASS/FAIL. Profil otomatis proof of concept dibatasi 120°C; siklus reflow Sn63/Pb37 yang direncanakan masih terkunci sampai validasi termal.",
-        "ko": "NTC 온도 측정, 2점 보정, PID 제어, SSD1306 및 FreeRTOS 태스크를 통합한 STM32F103C8T6 실험용 펌웨어입니다. Raspberry Pi 검사 결과를 USB CDC로 받아 컨베이어 PASS/FAIL 분류에 연결합니다. 개념검증 자동 프로파일은 최고 120°C이며, 계획된 Sn63/Pb37 리플로우 사이클은 열 검증 전까지 잠금 상태입니다.",
-        "ja": "NTC 温度計測、2点校正、PID 制御、SSD1306、FreeRTOS タスクを統合した STM32F103C8T6 実験用ファームウェア。Raspberry Pi の検査結果を USB CDC で受信しコンベアの PASS/FAIL 仕分けに接続します。自動プロファイルは概念実証用で上限120°C。計画中の Sn63/Pb37 リフローサイクルは熱検証までロックされています。",
-        "zh": "实验性 STM32F103C8T6 固件，集成 NTC 测温、两点校准、PID 控制、SSD1306 和 FreeRTOS 任务。通过 USB CDC 将 Raspberry Pi 检测结果连接到传送带 PASS/FAIL 分拣。自动概念验证温度曲线上限为120°C，计划中的 Sn63/Pb37 回流周期在热验证前保持锁定。"
+        "en": "Sunda Reflow Oven is a team prototype. I worked on the heating system and firmware integration. Experimental STM32F103C8T6 firmware with NTC temperature sensing, two-point calibration, PID control, SSD1306 and FreeRTOS tasks. USB CDC connects Raspberry Pi inspection results to conveyor PASS/FAIL sorting. The automatic proof-of-concept profile is capped at 120°C; the planned Sn63/Pb37 reflow cycle remains locked pending thermal validation.",
+        "id": "Sunda Reflow Oven adalah prototipe tim. Saya mengerjakan sistem pemanas dan integrasi firmware. Firmware eksperimental STM32F103C8T6 dengan sensor suhu NTC, kalibrasi dua titik, kendali PID, SSD1306, dan task FreeRTOS. USB CDC menghubungkan hasil inspeksi Raspberry Pi ke penyortiran konveyor PASS/FAIL. Profil otomatis proof of concept dibatasi 120°C; siklus reflow Sn63/Pb37 yang direncanakan masih terkunci sampai validasi termal.",
+        "ko": "Sunda Reflow Oven은 팀 시제품입니다. 저는 가열 시스템과 펌웨어 통합을 담당했습니다. NTC 온도 측정, 2점 보정, PID 제어, SSD1306 및 FreeRTOS 태스크를 통합한 STM32F103C8T6 실험용 펌웨어입니다. Raspberry Pi 검사 결과를 USB CDC로 받아 컨베이어 PASS/FAIL 분류에 연결합니다. 개념검증 자동 프로파일은 최고 120°C이며, 계획된 Sn63/Pb37 리플로우 사이클은 열 검증 전까지 잠금 상태입니다.",
+        "ja": "Sunda Reflow Oven はチームで開発した試作機です。加熱システムとファームウェアの統合を担当しました。 NTC 温度計測、2点校正、PID 制御、SSD1306、FreeRTOS タスクを統合した STM32F103C8T6 実験用ファームウェア。Raspberry Pi の検査結果を USB CDC で受信しコンベアの PASS/FAIL 仕分けに接続します。自動プロファイルは概念実証用で上限120°C。計画中の Sn63/Pb37 リフローサイクルは熱検証までロックされています。",
+        "zh": "Sunda Reflow Oven 是团队原型。我负责加热系统和固件集成。 实验性 STM32F103C8T6 固件，集成 NTC 测温、两点校准、PID 控制、SSD1306 和 FreeRTOS 任务。通过 USB CDC 将 Raspberry Pi 检测结果连接到传送带 PASS/FAIL 分拣。自动概念验证温度曲线上限为120°C，计划中的 Sn63/Pb37 回流周期在热验证前保持锁定。"
       },
       "stack": [
         "C",
@@ -786,6 +786,188 @@ const CONTENT = {
             "ko": "리플로우 PCB 파일",
             "ja": "リフロー基板ファイル",
             "zh": "回流焊 PCB 文件"
+          }
+        },
+        {
+          "url": "https://drive.google.com/file/d/1VFEeOF6PuZsCFFgYCe0GbRXrp75BGyCV/view",
+          "label": {
+            "en": "Watch the recorded demo",
+            "id": "Tonton rekaman demo",
+            "ko": "시연 영상 보기",
+            "ja": "デモ録画を見る",
+            "zh": "观看演示录像"
+          }
+        }
+      ],
+      "media": [
+        {
+          "src": "assets/img/portfolio/reflow-system.jpg",
+          "caption": {
+            "en": "Reflow prototype test setup",
+            "id": "Rangkaian uji prototipe reflow",
+            "ko": "리플로우 시제품 시험 구성",
+            "ja": "リフロー試作機の試験構成",
+            "zh": "回流焊原型测试装置"
+          }
+        },
+        {
+          "src": "assets/img/portfolio/reflow-oled.jpg",
+          "caption": {
+            "en": "OLED operator interface",
+            "id": "Antarmuka operator OLED",
+            "ko": "OLED 조작 화면",
+            "ja": "OLED 操作画面",
+            "zh": "OLED 操作界面"
+          }
+        }
+      ]
+    },
+    {
+      "id": "FPGA-ROAD-SIGN",
+      "year": "2026",
+      "title": {
+        "en": "Traffic Sign CNN on Basys 3",
+        "id": "CNN Rambu Lalu Lintas pada Basys 3",
+        "ko": "Basys 3 교통 표지판 분류 CNN",
+        "ja": "Basys 3 による交通標識分類 CNN",
+        "zh": "基于 Basys 3 的交通标志分类 CNN"
+      },
+      "desc": {
+        "en": "In this team project, I worked on the top-level module, control FSM, timing and model builds. The Basys 3 runs integer CNN inference on 16 × 16 grayscale GTSRB inputs received over UART. The project report records 95.58% accuracy on 4,590 test images for the eight-class model, about 235 µs of core inference and 31.92 ms median host round-trip latency over UART.",
+        "id": "Dalam proyek tim ini, saya mengerjakan modul top-level, FSM kontrol, timing, dan build model. Basys 3 menjalankan inferensi CNN bilangan bulat pada masukan grayscale GTSRB berukuran 16 × 16 yang diterima melalui UART. Laporan mencatat akurasi 95,58% pada 4.590 gambar uji untuk model delapan kelas, waktu inferensi inti sekitar 235 µs, dan median latensi pulang-pergi host via UART 31,92 ms.",
+        "ko": "팀 프로젝트에서 최상위 모듈, 제어 FSM, 타이밍 및 모델 빌드를 담당했습니다. Basys 3는 UART로 받은 16 × 16 흑백 GTSRB 입력에 정수 CNN 추론을 수행합니다. 보고서의 8클래스 모델은 테스트 이미지 4,590장에서 정확도 95.58%를 기록했습니다. 코어 추론은 약 235 µs, UART를 통한 호스트 왕복 시간의 중앙값은 31.92 ms였습니다.",
+        "ja": "チーム開発でトップレベルモジュール、制御 FSM、タイミング、モデルのビルドを担当しました。Basys 3 は UART で受け取った 16 × 16 のグレースケール GTSRB 入力に対して整数 CNN 推論を実行します。報告書の8クラスモデルは、テスト画像4,590枚で精度95.58%、コア推論時間約235 µs、UART 経由のホスト往復時間の中央値31.92 msを記録しました。",
+        "zh": "在团队项目中，我负责顶层模块、控制状态机、时序和模型构建。Basys 3 对通过 UART 接收的 16 × 16 灰度 GTSRB 输入执行整数 CNN 推理。项目报告记录的八类模型在 4,590 张测试图像上达到 95.58% 的准确率，核心推理约 235 µs，UART 主机往返延迟中位数为 31.92 ms。"
+      },
+      "stack": [
+        "Basys 3",
+        "Artix-7 XC7A35T",
+        "Vivado",
+        "UART",
+        "GTSRB"
+      ],
+      "media": [
+        {
+          "src": "assets/img/portfolio/fpga-architecture.png",
+          "caption": {
+            "en": "FPGA inference and UART data path",
+            "id": "Alur inferensi FPGA dan data UART",
+            "ko": "FPGA 추론 및 UART 데이터 경로",
+            "ja": "FPGA 推論と UART データ経路",
+            "zh": "FPGA 推理与 UART 数据通路"
+          }
+        },
+        {
+          "src": "assets/img/portfolio/fpga-waveform.png",
+          "caption": {
+            "en": "Convolution simulation waveform",
+            "id": "Gelombang simulasi konvolusi",
+            "ko": "합성곱 시뮬레이션 파형",
+            "ja": "畳み込みシミュレーション波形",
+            "zh": "卷积仿真波形"
+          }
+        }
+      ],
+      "projectLinks": [
+        {
+          "url": "https://drive.google.com/drive/folders/1lrYqiYobX5uXTVhgmyGzwcY8RfO950uk",
+          "label": {
+            "en": "Project documentation",
+            "id": "Dokumentasi proyek",
+            "ko": "프로젝트 자료",
+            "ja": "プロジェクト資料",
+            "zh": "项目文档"
+          }
+        },
+        {
+          "url": "https://drive.google.com/file/d/1HbAxrAeqbZolyB-Sv6DhuqTRDztYjVQj/view",
+          "label": {
+            "en": "Watch the recorded demo",
+            "id": "Tonton rekaman demo",
+            "ko": "시연 영상 보기",
+            "ja": "デモ録画を見る",
+            "zh": "观看演示录像"
+          }
+        },
+        {
+          "url": "projects/road-sign-cnn/",
+          "label": {
+            "en": "Related browser CNN lab",
+            "id": "Lab CNN terkait di browser",
+            "ko": "관련 브라우저 CNN 실습",
+            "ja": "関連するブラウザー版 CNN ラボ",
+            "zh": "相关浏览器 CNN 实验室"
+          }
+        }
+      ]
+    },
+    {
+      "id": "KICAD-BOARDS",
+      "year": "2026",
+      "title": {
+        "en": "ATmega128 Minimum System & ESP32 MIPI–HDMI Bridge",
+        "id": "Sistem Minimum ATmega128 & Bridge ESP32 MIPI–HDMI",
+        "ko": "ATmega128 최소 시스템 및 ESP32 MIPI–HDMI 브리지",
+        "ja": "ATmega128 最小システムと ESP32 MIPI–HDMI ブリッジ",
+        "zh": "ATmega128 最小系统与 ESP32 MIPI–HDMI 桥接板"
+      },
+      "desc": {
+        "en": "Co-designed two boards in KiCad. The two-layer ATmega128A board provides USB-C power, CH340C USB-to-UART and ISP/GPIO headers. The four-layer bridge routes two MIPI DSI data lanes from an ESP32-P4 host to an LT8912B for HDMI and LVDS output. The report documents zero DRC violations and zero unconnected items under the configured rules. Electrical and video-output validation on physical boards remains pending.",
+        "id": "Mendesain dua PCB bersama tim di KiCad. Papan ATmega128A dua lapis menyediakan daya USB-C, USB-to-UART CH340C, serta header ISP dan GPIO. Papan bridge empat lapis merutekan dua jalur data MIPI DSI dari host ESP32-P4 ke LT8912B untuk keluaran HDMI dan LVDS. Laporan mencatat nol pelanggaran DRC dan nol sambungan yang terlewat berdasarkan aturan yang dikonfigurasi. Validasi kelistrikan dan keluaran video pada papan fisik masih menunggu pengujian.",
+        "ko": "팀과 함께 KiCad로 두 기판을 설계했습니다. 2층 ATmega128A 기판은 USB-C 전원, CH340C USB-UART 및 ISP/GPIO 헤더를 제공합니다. 4층 브리지는 ESP32-P4 호스트의 MIPI DSI 데이터 2레인을 LT8912B로 연결해 HDMI와 LVDS 출력을 제공하도록 설계했습니다. 보고서에는 설정된 규칙 기준 DRC 위반과 미연결 항목이 각각 0건으로 기록되어 있습니다. 실물 기판의 전기적 동작과 영상 출력 검증은 남아 있습니다.",
+        "ja": "チームで KiCad を使い2枚の基板を設計しました。2層の ATmega128A 基板には USB-C 電源、CH340C USB-UART、ISP/GPIO ヘッダーを搭載しています。4層のブリッジ基板は ESP32-P4 ホストからの MIPI DSI データ2レーンを LT8912B へ配線し、HDMI と LVDS に出力する設計です。報告書では設定ルール下で DRC 違反・未接続項目ともに0件でした。実基板の電気特性と映像出力は今後検証します。",
+        "zh": "团队使用 KiCad 共同设计了两块电路板。双层 ATmega128A 板提供 USB-C 供电、CH340C USB 转 UART 及 ISP/GPIO 排针。四层桥接板将 ESP32-P4 主机的两条 MIPI DSI 数据通道连接到 LT8912B，用于 HDMI 和 LVDS 输出。报告记录了按已配置规则检查时的零 DRC 违规和零未连接项。实物板的电气和视频输出验证仍待完成。"
+      },
+      "stack": [
+        "KiCad",
+        "ATmega128A",
+        "CH340C",
+        "ESP32-P4",
+        "LT8912B",
+        "MIPI DSI",
+        "HDMI / LVDS"
+      ],
+      "media": [
+        {
+          "src": "assets/img/portfolio/atmega128-kicad.png",
+          "caption": {
+            "en": "ATmega128 board in KiCad 3D view",
+            "id": "Tampilan 3D KiCad papan ATmega128",
+            "ko": "ATmega128 기판 KiCad 3D 화면",
+            "ja": "ATmega128 基板の KiCad 3D 表示",
+            "zh": "ATmega128 板的 KiCad 3D 视图"
+          }
+        },
+        {
+          "src": "assets/img/portfolio/mipi-hdmi-kicad.png",
+          "caption": {
+            "en": "MIPI–HDMI bridge in KiCad 3D view",
+            "id": "Tampilan 3D KiCad bridge MIPI–HDMI",
+            "ko": "MIPI–HDMI 브리지 KiCad 3D 화면",
+            "ja": "MIPI–HDMI ブリッジの KiCad 3D 表示",
+            "zh": "MIPI–HDMI 桥接板的 KiCad 3D 视图"
+          }
+        }
+      ],
+      "projectLinks": [
+        {
+          "url": "https://drive.google.com/drive/folders/1ggQQecsF_qoN7etlvN3Anhlk-Wa3iAyB",
+          "label": {
+            "en": "Project documentation",
+            "id": "Dokumentasi proyek",
+            "ko": "프로젝트 자료",
+            "ja": "プロジェクト資料",
+            "zh": "项目文档"
+          }
+        },
+        {
+          "url": "https://drive.google.com/file/d/1crhHV_IGX-wWJUWzOECkC1ixeB7NAKnq/view",
+          "label": {
+            "en": "Watch the recorded demo",
+            "id": "Tonton rekaman demo",
+            "ko": "시연 영상 보기",
+            "ja": "デモ録画を見る",
+            "zh": "观看演示录像"
           }
         }
       ]

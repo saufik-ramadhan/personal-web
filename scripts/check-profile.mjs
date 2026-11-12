@@ -46,6 +46,7 @@ assert.equal(c.languages[1].level, undefined, 'Do not infer a proficiency rating
 const projects = [...c.electronics, ...c.software, ...c.design];
 for (const item of projects) {
   for (const image of item.images || []) assert(fs.existsSync(path.join(root, image)), `Missing ${image}`);
+  for (const media of item.media || []) assert(fs.existsSync(path.join(root, media.src)), `Missing ${media.src}`);
   for (const key of ['link', 'demo']) if (item[key]) assert(/^https:\/\//.test(item[key]), `Invalid ${item.id || item.title.en} ${key}`);
 }
 for (const code of codes) {

@@ -258,6 +258,24 @@
       var li = entry(item.year, t(item.title));
       li.main.appendChild(el('p', 'entry__detail', t(item.desc)));
       if (item.stack && item.stack.length) li.main.appendChild(metaLine('stack', item.stack));
+      if (item.media && item.media.length) {
+        var gallery = el('div', 'entry__gallery');
+        item.media.forEach(function (media) {
+          var caption = t(media.caption);
+          var figure = el('figure', 'entry__figure');
+          var link = externalLink(media.src, null, 'entry__thumbnail');
+          var image = el('img');
+          image.src = media.src;
+          image.alt = caption;
+          image.loading = 'lazy';
+          image.decoding = 'async';
+          link.appendChild(image);
+          figure.appendChild(link);
+          figure.appendChild(el('figcaption', 'entry__caption', caption));
+          gallery.appendChild(figure);
+        });
+        li.main.appendChild(gallery);
+      }
       /* `demo` is optional and comes first — something playable beats source. */
       if (item.demo) {
         var d = el('p', 'meta-line');
